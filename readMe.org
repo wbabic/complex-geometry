@@ -1,29 +1,32 @@
 * complex
   A Clojure library designed to make graphs of the complex plane
 ** Overview
-   descriptive text with equations latex mathjax
-   canvas animated graphics
+   Descriptive text with latex equations rendered via mathjax.
+   Canvas animated graphics.
 
-   make graphs of the complex plane
+   Make graphs of the complex plane
    with equations marked up with latex
    and code sytax highlighted in clojure, clojurescript
    writing to an html canvas
-   using complex geometry library
+   using custom complex geometry library.
 
-   interactive repl development
-   server in compojure ring hiccup
+   With interactive repl development  
+   using server in compojure ring hiccup.
+   
+   With a browser repl using piggieback.
 
-   starting woth regions of the plane and
-   the nth roots of unity
+   Starting with regions of the plane and
+   the nth roots of unity.
+
 ** Usage
 **** cljs
+     #+BEGIN_SRC shell
      lein cljsbuild once
      or
      lein cljsbuild auto
+     #+END_SRC
 
-     compiles to public/resources/js/complex.js
-
-     in project.clj, added
+     Add to project.clj:
 
      #+BEGIN_SRC clojure
      :cljsbuild
@@ -33,8 +36,12 @@
                 :optimizations :whitespace
                 :pretty-print true}}]}
      #+END_SRC
+
+     Will compile to public/resources/js/complex.js.
+
 **** lein repl
-     M-x cider-jack-in
+     M-x cider-jack-in to start a clojure repl from Emacs.
+
      user=>
      #+BEGIN_SRC clojure
      (go)
@@ -47,16 +54,15 @@
      http://localhost:3005/hello.html
 
 **** browser repl 
-     using piggieback
+     Using piggieback:
      https://github.com/cemerick/piggieback
 
-     in project.clj add
+     In project.clj add:
      #+BEGIN_SRC clojure
      :dependencies [ [com.cemerick/piggieback "0.1.0"] ... ]
      :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
      #+END_SRC
      
-     from core.async/geometry
      user=>
      #+BEGIN_SRC clojure
      (require 'cljs.repl.browser)
@@ -65,7 +71,7 @@
      (.log js/console "hello")
      #+END_SRC
 ** Dependencies
-   # clojure
+    - clojure
     - clojurescript
     - core.async
     - leiningen
