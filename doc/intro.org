@@ -1,0 +1,50 @@
+* Introduction to complex
+** draw graphs of the complex plane
+*** lines and circles
+    equations and formulas
+*** regions
+    unit disk
+    upper half plane 
+*** grids
+    rectangular
+    polar
+    elliptic hyperbollic
+*** roots of unity
+    live code blocks
+    as a src block:
+    #+NAME: latexTest
+    #+BEGIN_SRC latex
+    \alpha
+    #+END_SRC
+
+    also inline src_latex{\gamma}
+
+    <L TAB  will expand:
+    #+LaTeX: \beta
+    <L
+
+*** circles and radial lines
+**** 24 fold
+     15 degree increments
+     15 30 45 60 75 90
+     times 4
+     reflect x
+     reflect y
+     r = 1
+     as r -> 0
+     as r -> infinity
+     theta -> 
+     pi  half quarter eigth
+         third sixth twelth
+     a twentyfourth of tau
+     a twelth of pi
+*** ellipses and hyperbolas
+*** the complex exponential function
+** draw into html canvas using clojurescript
+   complex.cljs
+   geometry.cljs
+   
+** org-mode export to display equations
+   use org mode to export equations
+   to isert template with export options:
+   C-c C-e t  ->  org-insert-export-options-template

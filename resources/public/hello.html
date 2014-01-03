@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Complex Geometry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container">
+    <div class="well">
+      <div class="container">
+        <h1 class="text-center">the Complex Plane</h1>
+      </div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-md-4">
+          <h3>nth roots of unity</h3>
+          <div>
+$$
+\left\{ w \in \mathbb{C} : w^n = 1  \right\}
+$$
+            $$
+    \sqrt[n]{1} = 1^\frac{1}{n} = \left\{e^{i\tau\left(\frac{k}{n}\right)} : k=0,1,2,\ldots,n-1 \right\}
+            $$
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h3>code </h3>
+          <div>
+            ratios of $\tau$ where $\tau = 2 \pi$
+            
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <h3>graphics</h3>
+          <canvas id="canvas" width="400" height="400">
+            <h2>Canvas not supported!</h2>
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- pointing to cljsbuild generated js file -->
+  <script src="js/complex.js"></script>
+  <!-- MathJax CDN -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+          src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+</body>
+</html>
