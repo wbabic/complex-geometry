@@ -33,9 +33,9 @@
      #+END_SRC
 
      #+BEGIN_SRC shell
-     lein cljsbuild once
+     $ lein cljsbuild once
      or
-     lein cljsbuild auto
+     $ lein cljsbuild auto
      #+END_SRC
      will compile to public/resources/js/complex.js.
 
@@ -63,14 +63,17 @@
      :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
      #+END_SRC
      
-     user=>
      #+BEGIN_SRC clojure
-     (require 'cljs.repl.browser)
-     (cemerick.piggieback/cljs-repl :repl-env (cljs.repl.browser/repl-env :port 9000))
+     cljs.user=> (require 'cljs.repl.browser)
+     cljs.user=> (cemerick.piggieback/cljs-repl :repl-env (cljs.repl.browser/repl-env :port 9000))
    
-     (.log js/console "hello")
+     cljs.user=> (.log js/console "hello")
      #+END_SRC
 ** Dependencies
+   #+BEGIN_SRC shell
+   $ lein deps :tree
+   #+END_SRC
+
     - leiningen
     - clojure
     - clojurescript

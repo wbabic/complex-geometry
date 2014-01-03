@@ -29,6 +29,50 @@
   (toString [this]
     (str (round (:x this)) " + i" (round (:y this)))))
 
+(defrecord ComplexPolar [r a]
+  Object
+  (toString [this]
+    (let [x (re this)
+          y (im this)]
+      (ComplexRect. x y))))
+
+(extend-type ComplexPolar
+  complex
+  (length [z] (:r z))
+  (angle [z] (:a z))
+  (re [z] (let [r (:r z) a (:a z)]
+            (* r (Math/cos a))))
+  (im [z] (let [r (:r z) a (:a z)]
+            (* r (Math/sin a))))
+  (conjugate [z] (ComplexPolar. (:r z) (- (:a z))))
+  (polar [z] z)
+  (rect [z] (ComplexRect. (re z) (im z)))
+  (inverse [z]
+    (let [r (/ (:r z))
+          a (- (:a z))]
+      (ComplexPolar. r a)))
+  (mult [z1 z2]
+    (let [r1 (:r z1) a1 (:a z1)
+          z2 (polar z2)
+          r2 (:r z2) a2 (:a z2)]
+      (ComplexPolar. (* r1 r2) (+ a1 a2))))
+  (mult-by [z1]
+    (fn [z2] (mult z1 z2)))
+  (times [z rf]
+    (let [r (:r z)
+          a (:a z)]
+      (ComplexPolar. (* r rf) a)))
+  (plus [z1 z2]
+    (plus (rect z1) z2))
+  (minus [z]
+    (minus (rect z)))
+  (add-by [z]
+    (fn [w] (plus z w)))
+  (inversion [z]
+    (let [r (/ (:r z))
+          a (:a z)]
+      (ComplexPolar. r a))))
+
 (extend-type ComplexRect
   complex
   (re [z] (:x z))
@@ -81,50 +125,6 @@
           x (/ (:x z) r2)
           y (/ (:y z) r2)]
       (ComplexRect. x y))))
-
-(defrecord ComplexPolar [r a]
-  Object
-  (toString [this]
-    (let [x (re this)
-          y (im this)]
-      (ComplexRect. x y))))
-
-(extend-type ComplexPolar
-  complex
-  (length [z] (:r z))
-  (angle [z] (:a z))
-  (re [z] (let [r (:r z) a (:a z)]
-            (* r (Math/cos a))))
-  (im [z] (let [r (:r z) a (:a z)]
-            (* r (Math/sin a))))
-  (conjugate [z] (ComplexPolar. (:r z) (- (:a z))))
-  (polar [z] z)
-  (rect [z] (ComplexRect. (re z) (im z)))
-  (inverse [z]
-    (let [r (/ (:r z))
-          a (- (:a z))]
-      (ComplexPolar. r a)))
-  (mult [z1 z2]
-    (let [r1 (:r z1) a1 (:a z1)
-          z2 (polar z2)
-          r2 (:r z2) a2 (:a z2)]
-      (ComplexPolar. (* r1 r2) (+ a1 a2))))
-  (mult-by [z1]
-    (fn [z2] (mult z1 z2)))
-  (times [z rf]
-    (let [r (:r z)
-          a (:a z)]
-      (ComplexPolar. (* r rf) a)))
-  (plus [z1 z2]
-    (plus (rect z1) z2))
-  (minus [z]
-    (minus (rect z)))
-  (add-by [z]
-    (fn [w] (plus z w)))
-  (inversion [z]
-    (let [r (/ (:r z))
-          a (:a z)]
-      (ComplexPolar. r a))))
 
 (defn inversion-by
   "return the function that inverts in unit circle"
