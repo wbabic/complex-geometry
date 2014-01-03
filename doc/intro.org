@@ -10,18 +10,6 @@
     polar
     elliptic hyperbollic
 *** roots of unity
-    live code blocks
-    as a src block:
-    #+NAME: latexTest
-    #+BEGIN_SRC latex
-    \alpha
-    #+END_SRC
-
-    also inline src_latex{\gamma}
-
-    <L TAB  will expand:
-    #+LaTeX: \beta
-    <L
 
 *** circles and radial lines
 **** 24 fold
