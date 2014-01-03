@@ -1,8 +1,9 @@
 * complex
-  A Clojure library designed to make graphs of the complex plane
+  A Clojure library designed to make graphs of the complex plane.
+
 ** Overview
-   Descriptive text with latex equations rendered via mathjax.
-   Canvas animated graphics.
+   Descriptive text with latex equations rendered via mathjax
+   and canvas animated graphics.
 
    Make graphs of the complex plane
    with equations marked up with latex
@@ -20,12 +21,6 @@
 
 ** Usage
 **** cljs
-     #+BEGIN_SRC shell
-     lein cljsbuild once
-     or
-     lein cljsbuild auto
-     #+END_SRC
-
      Add to project.clj:
 
      #+BEGIN_SRC clojure
@@ -37,18 +32,23 @@
                 :pretty-print true}}]}
      #+END_SRC
 
-     Will compile to public/resources/js/complex.js.
+     #+BEGIN_SRC shell
+     lein cljsbuild once
+     or
+     lein cljsbuild auto
+     #+END_SRC
+     will compile to public/resources/js/complex.js.
 
 **** lein repl
      M-x cider-jack-in to start a clojure repl from Emacs.
 
-     user=>
+     From the clojure repl:
      #+BEGIN_SRC clojure
-     (go)
-     (reset)
+     user=> (go)
+     user=> (reset)
 
-     (in-ns 'complex.complex)
-     ((mult-by i) one)
+     user=> (in-ns 'complex.complex)
+     user=> ((mult-by i) one)
      #+END_SRC
 
      http://localhost:3005/hello.html
@@ -71,10 +71,11 @@
      (.log js/console "hello")
      #+END_SRC
 ** Dependencies
+    - leiningen
     - clojure
     - clojurescript
+    - lein cljsbuil
     - core.async
-    - leiningen
     - nrepl
     - piggieback
     - environ
@@ -83,7 +84,6 @@
     - hiccup
     - MathJax LaTeX
     - twitter bootstrap
-    - MathJax
 ** License
    Copyright © 2013 Walter P Babic
 
