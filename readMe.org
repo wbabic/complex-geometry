@@ -65,19 +65,19 @@
      (.log js/console "hello")
      #+END_SRC
 ** Dependencies
-*** clojure
-*** clojurescript
-*** core.async
-*** leiningen
-*** nrepl
-*** piggieback
-*** environ
-*** ring
-*** compojure
-*** hiccup
-*** MathJax LaTeX
-*** twitter bootstrap
-*** MathJax
+   # clojure
+    - clojurescript
+    - core.async
+    - leiningen
+    - nrepl
+    - piggieback
+    - environ
+    - ring
+    - compojure
+    - hiccup
+    - MathJax LaTeX
+    - twitter bootstrap
+    - MathJax
 ** License
    Copyright © 2013 Walter P Babic
 
