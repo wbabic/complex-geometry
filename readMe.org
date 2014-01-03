@@ -25,12 +25,14 @@
 
      in project.clj, added
 
+     #+BEGIN_SRC clojure
      :cljsbuild
      {:builds
      [{:source-paths ["src/complex"]
      :compiler {:output-to "resources/public/js/complex.js"
                 :optimizations :whitespace
                 :pretty-print true}}]}
+     #+END_SRC
 **** lein repl
      M-x cider-jack-in
      user=>
@@ -49,8 +51,10 @@
      https://github.com/cemerick/piggieback
 
      in project.clj add
+     #+BEGIN_SRC clojure
      :dependencies [ [com.cemerick/piggieback "0.1.0"] ... ]
      :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+     #+END_SRC
      
      from core.async/geometry
      user=>
@@ -60,20 +64,19 @@
    
      (.log js/console "hello")
      #+END_SRC
-
 ** Dependencies
-   clojure
-   clojurescript
-   core.async
-   leiningen
-   nrepl
-   piggieback
-   environ
-   ring
-   compojure
-   hiccup
-   MathJax LaTeX
-   twitter bootstrap
+*** clojure
+*** clojurescript
+*** core.async
+*** leiningen
+*** nrepl
+*** piggieback
+*** environ
+*** ring
+*** compojure
+*** hiccup
+*** MathJax LaTeX
+*** twitter bootstrap
 *** MathJax
 ** License
    Copyright © 2013 Walter P Babic
