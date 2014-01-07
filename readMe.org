@@ -1,5 +1,8 @@
-* complex
-  A Clojure library designed to make graphs of the complex plane.
+* complex geometry
+  A ClojureScript web app designed to make graphs of the complex
+  plane. A work in progress.
+
+  for a demo see: http://wbabic.github.io/complex-geometry
 
 ** Overview
    Descriptive text with latex equations rendered via mathjax
@@ -39,7 +42,7 @@
      #+END_SRC
      will compile to public/resources/js/complex.js.
 
-**** lein repl
+**** clojure repl
      M-x cider-jack-in to start a clojure repl from Emacs.
 
      From the clojure repl:
@@ -73,11 +76,10 @@
    #+BEGIN_SRC shell
    $ lein deps :tree
    #+END_SRC
-
     - leiningen
     - clojure
     - clojurescript
-    - lein cljsbuil
+    - lein cljsbuild
     - core.async
     - nrepl
     - piggieback
